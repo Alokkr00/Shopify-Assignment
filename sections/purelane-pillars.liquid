@@ -1,0 +1,118 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'purelane-sections.js' | asset_url }}" defer="defer"></script>
+
+<section class="purelane-sec purelane-wrapper" id="how" data-scene="2">
+  <div class="purelane-wrap">
+    <div class="purelane-pillars">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <article class="purelane-glass purelane-pillar purelane-rv purelane-rv-d{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <span class="purelane-pi">
+              {%- case block.settings.icon -%}
+                {%- when 'shield' -%}
+                  {% render 'purelane-icons', icon: 'shield-check' %}
+                {%- when 'heart' -%}
+                  {% render 'purelane-icons', icon: 'heart-shield' %}
+                {%- else -%}
+                  {% render 'purelane-icons', icon: 'bubbles' %}
+              {%- endcase -%}
+            </span>
+            <h3 class="purelane-d3">{{ block.settings.title }}</h3>
+            <p class="purelane-body-s">{{ block.settings.body }}</p>
+            {%- if block.settings.button_label != blank -%}
+              <a class="purelane-btn purelane-btn-ghost purelane-btn-sm" href="{{ block.settings.button_link | default: '#shop' }}">
+                {{ block.settings.button_label }}
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane Pillars",
+  "tag": "section",
+  "class": "purelane-pillars-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Value Pillar",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "bubbles", "label": "Foaming Bubbles" },
+            { "value": "shield", "label": "Clean Shield" },
+            { "value": "heart", "label": "Heart & Family" }
+          ],
+          "default": "bubbles"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Pillar Title",
+          "default": "Less scrubbing"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Pillar Description",
+          "default": "A foaming formulation. The foam clings to grease and lifts it, so you wipe instead of scrub."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "bubbles",
+            "title": "Less scrubbing",
+            "body": "A foaming formulation. The foam clings to grease and lifts it, so you wipe instead of scrub.",
+            "button_label": "Learn more"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "shield",
+            "title": "Clean ingredients",
+            "body": "No sulphates, no chlorine, no synthetic fragrance. Nothing on the label you would not want near your food.",
+            "button_label": "Learn more"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "heart",
+            "title": "Safe around everyone",
+            "body": "Gentle on hands, safe around kids and pets, and it leaves no toxic residue on the surfaces you touch every day.",
+            "button_label": "Learn more"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

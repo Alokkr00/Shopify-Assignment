@@ -1,0 +1,73 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'purelane-sections.js' | asset_url }}" defer="defer"></script>
+
+<section class="purelane-sec purelane-wrapper" data-scene="4" id="PurelaneTrust-{{ section.id }}">
+  <div class="purelane-wrap">
+    <div class="purelane-glass purelane-trust purelane-rv">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <div class="purelane-trust-i" {{ block.shopify_attributes }}>
+            {%- case block.settings.icon -%}
+              {%- when 'box' -%}
+                {% render 'purelane-icons', icon: 'box' %}
+              {%- when 'heart' -%}
+                {% render 'purelane-icons', icon: 'heart-shield' %}
+              {%- when 'globe' -%}
+                {% render 'purelane-icons', icon: 'globe' %}
+              {%- else -%}
+                {% render 'purelane-icons', icon: 'leaf-shield' %}
+            {%- endcase -%}
+            <span>{{ block.settings.title }}</span>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane Trust Bar",
+  "tag": "section",
+  "class": "purelane-trust-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Badge",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Badge Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf (Plant derived)" },
+            { "value": "box", "label": "Box (Recyclable)" },
+            { "value": "heart", "label": "Heart (Safe for kids & pets)" },
+            { "value": "globe", "label": "Globe (Made in India)" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Badge Text",
+          "default": "Plant derived<br>formulas"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Trust Bar",
+      "blocks": [
+        { "type": "trust_item", "settings": { "icon": "leaf", "title": "Plant derived<br>formulas" } },
+        { "type": "trust_item", "settings": { "icon": "box", "title": "Recyclable<br>packaging" } },
+        { "type": "trust_item", "settings": { "icon": "heart", "title": "Safe for<br>kids & pets" } },
+        { "type": "trust_item", "settings": { "icon": "globe", "title": "Made in<br>India" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

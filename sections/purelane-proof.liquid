@@ -1,0 +1,291 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'purelane-sections.js' | asset_url }}" defer="defer"></script>
+
+<section class="purelane-sec purelane-wrapper" id="proof" data-scene="3">
+  <div class="purelane-wrap">
+    <div class="purelane-glass purelane-sec-pad purelane-rv">
+      <div class="purelane-proof">
+
+        <div class="purelane-proof-l">
+          {%- if section.settings.kicker != blank -%}
+            <span class="purelane-kicker">{{ section.settings.kicker }}</span>
+          {%- endif -%}
+
+          <h2 class="purelane-d2" style="margin-top: 12px;">{{ section.settings.heading | default: 'Tough on grime.<br>Gentle on everything else.' }}</h2>
+
+          {%- if section.settings.body != blank -%}
+            <p class="purelane-body-s" style="max-width: 40ch;">
+              {{ section.settings.body }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.button_label != blank -%}
+            <a class="purelane-btn purelane-btn-primary" href="{{ section.settings.button_link | default: '#ingredients' }}" style="margin-top: 22px;">
+              {{ section.settings.button_label }}
+              {% render 'purelane-icons', icon: 'arrow-right' %}
+            </a>
+          {%- endif -%}
+        </div>
+
+        <!-- Product Rotator Showcase -->
+        <div class="purelane-glass-2 purelane-rot" id="purelane-rot-{{ section.id }}" aria-hidden="true" data-interval="{{ section.settings.rotator_interval | default: 2900 }}">
+          <div class="purelane-frame">
+            {%- if section.blocks.size > 0 -%}
+              {%- for block in section.blocks -%}
+                {%- if block.settings.image != blank -%}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 340 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    class="purelane-pimg {% if forloop.first %}purelane-on{% endif %}"
+                    data-name="{{ block.settings.title | escape }}"
+                    data-note="{{ block.settings.note | escape }}"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <span
+                    class="purelane-pimg {% if forloop.first %}purelane-on{% endif %}"
+                    role="img"
+                    aria-label="{{ block.settings.title | escape }}"
+                    data-name="{{ block.settings.title | escape }}"
+                    data-note="{{ block.settings.note | escape }}"
+                  >
+                    {% render 'purelane-icons', icon: 'bottle-fallback' %}
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- else -%}
+              <span class="purelane-pimg purelane-on" data-name="Kitchen cleaner" data-note="Foam lifts grease, no scrubbing">
+                {% render 'purelane-icons', icon: 'bottle-fallback' %}
+              </span>
+              <span class="purelane-pimg" data-name="Tap &amp; limescale" data-note="Melts hard water stains">
+                {% render 'purelane-icons', icon: 'bottle-fallback' %}
+              </span>
+              <span class="purelane-pimg" data-name="Laundry detergent" data-note="Tough on odour, soft on fabric">
+                {% render 'purelane-icons', icon: 'bottle-fallback' %}
+              </span>
+              <span class="purelane-pimg" data-name="Toilet cleaner" data-note="Kills 99.9% of germs">
+                {% render 'purelane-icons', icon: 'bottle-fallback' %}
+              </span>
+            {%- endif -%}
+          </div>
+
+          <div class="purelane-cap">
+            <b>{{ section.blocks.first.settings.title | default: 'Kitchen cleaner' }}</b>
+            <span>{{ section.blocks.first.settings.note | default: 'Foam lifts grease, no scrubbing' }}</span>
+          </div>
+
+          <div class="purelane-dots">
+            {%- if section.blocks.size > 0 -%}
+              {%- assign rot_count = section.blocks.size -%}
+            {%- else -%}
+              {%- assign rot_count = 4 -%}
+            {%- endif -%}
+            {%- for i in (1..rot_count) -%}
+              <i class="{% if forloop.first %}purelane-on{% endif %}"></i>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <!-- Stat Rings -->
+        <div class="purelane-glass-2 purelane-stats" style="grid-column: 1 / -1; margin-top: 20px;">
+          <div class="purelane-stat">
+            <div class="purelane-ring">{{ section.settings.stat_1_number | default: '99.9%' }}</div>
+            <h5>{{ section.settings.stat_1_title | default: 'Germ kill' }}</h5>
+            <p>{{ section.settings.stat_1_subtitle | default: 'Tested against germs and bacteria' }}</p>
+          </div>
+          <div class="purelane-stat">
+            <div class="purelane-ring">{{ section.settings.stat_2_number | default: '0%' }}</div>
+            <h5>{{ section.settings.stat_2_title | default: 'Sulphates' }}</h5>
+            <p>{{ section.settings.stat_2_subtitle | default: 'No SLS, chlorine or parabens' }}</p>
+          </div>
+          <div class="purelane-stat">
+            <div class="purelane-ring">{{ section.settings.stat_3_number | default: '100%' }}</div>
+            <h5>{{ section.settings.stat_3_title | default: 'Plant based' }}</h5>
+            <p>{{ section.settings.stat_3_subtitle | default: 'Cleansers derived from plants' }}</p>
+          </div>
+          <div class="purelane-stat">
+            <div class="purelane-ring">{{ section.settings.stat_4_number | default: '4.8' }}</div>
+            <h5>{{ section.settings.stat_4_title | default: 'Rated' }}</h5>
+            <p>{{ section.settings.stat_4_subtitle | default: 'Across 8,000+ verified reviews' }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane Proof",
+  "tag": "section",
+  "class": "purelane-proof-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Why it works"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Tough on grime.<br>Gentle on everything else."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body Paragraph",
+      "default": "Every formula is built on plant-derived cleansers and essential oils. It behaves exactly like the cleaner you are used to, minus the things you never signed up for."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "See the ingredient list"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "rotator_interval",
+      "min": 1500,
+      "max": 6000,
+      "step": 200,
+      "unit": "ms",
+      "label": "Rotator Speed",
+      "default": 2900
+    },
+    {
+      "type": "header",
+      "content": "Stat 1"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Stat 1 Value",
+      "default": "99.9%"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_title",
+      "label": "Stat 1 Title",
+      "default": "Germ kill"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_subtitle",
+      "label": "Stat 1 Subtitle",
+      "default": "Tested against germs and bacteria"
+    },
+    {
+      "type": "header",
+      "content": "Stat 2"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Stat 2 Value",
+      "default": "0%"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_title",
+      "label": "Stat 2 Title",
+      "default": "Sulphates"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_subtitle",
+      "label": "Stat 2 Subtitle",
+      "default": "No SLS, chlorine or parabens"
+    },
+    {
+      "type": "header",
+      "content": "Stat 3"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Stat 3 Value",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_title",
+      "label": "Stat 3 Title",
+      "default": "Plant based"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_subtitle",
+      "label": "Stat 3 Subtitle",
+      "default": "Cleansers derived from plants"
+    },
+    {
+      "type": "header",
+      "content": "Stat 4"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_number",
+      "label": "Stat 4 Value",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_title",
+      "label": "Stat 4 Title",
+      "default": "Rated"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_subtitle",
+      "label": "Stat 4 Subtitle",
+      "default": "Across 8,000+ verified reviews"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rotator_item",
+      "name": "Rotator Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title",
+          "default": "Kitchen cleaner"
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Feature Note",
+          "default": "Foam lifts grease, no scrubbing"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Proof",
+      "blocks": [
+        { "type": "rotator_item", "settings": { "title": "Kitchen cleaner", "note": "Foam lifts grease, no scrubbing" } },
+        { "type": "rotator_item", "settings": { "title": "Tap & limescale", "note": "Melts hard water stains" } },
+        { "type": "rotator_item", "settings": { "title": "Laundry detergent", "note": "Tough on odour, soft on fabric" } },
+        { "type": "rotator_item", "settings": { "title": "Toilet cleaner", "note": "Kills 99.9% of germs" } },
+        { "type": "rotator_item", "settings": { "title": "Floor cleaner", "note": "Neem powered, pet safe" } },
+        { "type": "rotator_item", "settings": { "title": "Dishwash gel", "note": "Cuts grease, kind to hands" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

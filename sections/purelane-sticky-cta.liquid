@@ -1,0 +1,50 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+
+<div class="purelane-sticky purelane-wrapper" id="PurelaneSticky-{{ section.id }}">
+  <span class="purelane-lbl">
+    <b>{{ section.settings.title | default: 'Pick any 3, pay ₹499' }}</b>
+    <span>{{ section.settings.subtitle | default: 'Free shipping, always' }}</span>
+  </span>
+
+  <a class="purelane-btn purelane-btn-primary purelane-btn-sm" href="{{ section.settings.button_link | default: '#bundles' }}">
+    {{ section.settings.button_label | default: 'Build bundle' }}
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Purelane Sticky Mobile CTA",
+  "tag": "section",
+  "class": "purelane-sticky-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Pick any 3, pay ₹499"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Free shipping, always"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Build bundle"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Sticky Mobile CTA"
+    }
+  ]
+}
+{% endschema %}

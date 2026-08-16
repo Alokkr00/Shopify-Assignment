@@ -1,0 +1,86 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+
+<div class="purelane-ticker purelane-wrapper" aria-hidden="true" id="PurelaneTicker-{{ section.id }}">
+  <div class="purelane-track">
+    {%- if section.blocks.size > 0 -%}
+      {%- for i in (1..2) -%}
+        {%- for block in section.blocks -%}
+          <span>{{ block.settings.regular_text }} <b>{{ block.settings.bold_text }}</b></span>
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- else -%}
+      <span>Free shipping <b>on every bundle across India</b></span>
+      <span>100% plant-based <b>and non-toxic</b></span>
+      <span>Loved by <b>30,000+ happy homes</b></span>
+      <span>Buy 3 <b>at flat ₹499</b></span>
+      <span>Free shipping <b>on every bundle across India</b></span>
+      <span>100% plant-based <b>and non-toxic</b></span>
+      <span>Loved by <b>30,000+ happy homes</b></span>
+      <span>Buy 3 <b>at flat ₹499</b></span>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Purelane Ticker",
+  "tag": "section",
+  "class": "purelane-ticker-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "ticker_item",
+      "name": "Ticker Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "regular_text",
+          "label": "Regular Text",
+          "default": "Free shipping"
+        },
+        {
+          "type": "text",
+          "id": "bold_text",
+          "label": "Bold Highlighted Text",
+          "default": "on every bundle across India"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Ticker",
+      "blocks": [
+        {
+          "type": "ticker_item",
+          "settings": {
+            "regular_text": "Free shipping",
+            "bold_text": "on every bundle across India"
+          }
+        },
+        {
+          "type": "ticker_item",
+          "settings": {
+            "regular_text": "100% plant-based",
+            "bold_text": "and non-toxic"
+          }
+        },
+        {
+          "type": "ticker_item",
+          "settings": {
+            "regular_text": "Loved by",
+            "bold_text": "30,000+ happy homes"
+          }
+        },
+        {
+          "type": "ticker_item",
+          "settings": {
+            "regular_text": "Buy 3",
+            "bold_text": "at flat ₹499"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
