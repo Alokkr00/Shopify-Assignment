@@ -45,7 +45,7 @@
             </div>
 
             <div class="purelane-price">
-              {{ block.settings.price | default: '₹499' }}
+              {{ block.settings.price | default: '&#8377;499' }}
               {%- if block.settings.compare_at_price != blank -%}
                 <s>{{ block.settings.compare_at_price }}</s>
               {%- endif -%}
@@ -87,8 +87,8 @@
             {% render 'purelane-icons', icon: 'bottle-fallback' %}
           </div>
           <div class="purelane-qty">2<small>Products</small></div>
-          <div class="purelane-price">₹349 <s>₹598</s></div>
-          <p class="purelane-body-s" style="font-size: 12px;">Flat ₹174 per product</p>
+          <div class="purelane-price">&#8377;349 <s>&#8377;598</s></div>
+          <p class="purelane-body-s" style="font-size: 12px;">Flat &#8377;174 per product</p>
           <ul>
             <li>{% render 'purelane-icons', icon: 'check' %}<span>Pick any two products</span></li>
             <li>{% render 'purelane-icons', icon: 'check' %}<span>Free shipping across India</span></li>
@@ -104,8 +104,8 @@
             {% render 'purelane-icons', icon: 'bottle-fallback' %}
           </div>
           <div class="purelane-qty">3<small>Products</small></div>
-          <div class="purelane-price">₹499 <s>₹897</s></div>
-          <p class="purelane-body-s" style="font-size: 12px;">Flat ₹166 per product</p>
+          <div class="purelane-price">&#8377;499 <s>&#8377;897</s></div>
+          <p class="purelane-body-s" style="font-size: 12px;">Flat &#8377;166 per product</p>
           <ul>
             <li>{% render 'purelane-icons', icon: 'check' %}<span>Pick any three products</span></li>
             <li>{% render 'purelane-icons', icon: 'check' %}<span>Covers kitchen and laundry</span></li>
@@ -124,8 +124,8 @@
             {% render 'purelane-icons', icon: 'bottle-fallback' %}
           </div>
           <div class="purelane-qty">5<small>Products</small></div>
-          <div class="purelane-price">₹799 <s>₹1495</s></div>
-          <p class="purelane-body-s" style="font-size: 12px;">Flat ₹160 per product</p>
+          <div class="purelane-price">&#8377;799 <s>&#8377;1495</s></div>
+          <p class="purelane-body-s" style="font-size: 12px;">Flat &#8377;160 per product</p>
           <ul>
             <li>{% render 'purelane-icons', icon: 'check' %}<span>Pick any five products</span></li>
             <li>{% render 'purelane-icons', icon: 'check' %}<span>Every room in one order</span></li>
@@ -204,19 +204,19 @@
           "type": "text",
           "id": "price",
           "label": "Tier Price",
-          "default": "₹349"
+          "default": "&#8377;349"
         },
         {
           "type": "text",
           "id": "compare_at_price",
           "label": "Original Price",
-          "default": "₹598"
+          "default": "&#8377;598"
         },
         {
           "type": "text",
           "id": "unit_price_note",
           "label": "Unit Price Calculation",
-          "default": "Flat ₹174 per product"
+          "default": "Flat &#8377;174 per product"
         },
         {
           "type": "textarea",
@@ -253,9 +253,9 @@
             "tag": "Starter",
             "quantity_number": "2",
             "quantity_label": "Products",
-            "price": "₹349",
-            "compare_at_price": "₹598",
-            "unit_price_note": "Flat ₹174 per product",
+            "price": "&#8377;349",
+            "compare_at_price": "&#8377;598",
+            "unit_price_note": "Flat &#8377;174 per product",
             "features_list": "Pick any two products\nFree shipping across India",
             "is_popular": false
           }
@@ -266,9 +266,9 @@
             "tag": "Most popular",
             "quantity_number": "3",
             "quantity_label": "Products",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "unit_price_note": "Flat ₹166 per product",
+            "price": "&#8377;499",
+            "compare_at_price": "&#8377;897",
+            "unit_price_note": "Flat &#8377;166 per product",
             "features_list": "Pick any three products\nCovers kitchen and laundry\nFree shipping across India",
             "is_popular": true
           }
@@ -279,9 +279,9 @@
             "tag": "Whole home",
             "quantity_number": "5",
             "quantity_label": "Products",
-            "price": "₹799",
-            "compare_at_price": "₹1495",
-            "unit_price_note": "Flat ₹160 per product",
+            "price": "&#8377;799",
+            "compare_at_price": "&#8377;1495",
+            "unit_price_note": "Flat &#8377;160 per product",
             "features_list": "Pick any five products\nEvery room in one order\nFree shipping across India",
             "is_popular": false,
             "is_five_items": true

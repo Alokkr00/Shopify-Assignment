@@ -28,7 +28,7 @@
           "type": "ticker_item",
           "settings": {
             "regular_text": "Buy 3",
-            "bold_text": "at flat ₹499"
+            "bold_text": "at flat Rs. 499"
           }
         }
       },
@@ -47,8 +47,8 @@
           "type": "stage_slide",
           "settings": {
             "label": "Single bottle",
-            "price": "₹200",
-            "compare_at_price": "₹299",
+            "price": "Rs. 200",
+            "compare_at_price": "Rs. 299",
             "savings_text": "33% off"
           }
         },
@@ -56,18 +56,18 @@
           "type": "stage_slide",
           "settings": {
             "label": "Any 2 products",
-            "price": "₹349",
-            "compare_at_price": "₹598",
-            "savings_text": "Save ₹249"
+            "price": "Rs. 349",
+            "compare_at_price": "Rs. 598",
+            "savings_text": "Save Rs. 249"
           }
         },
         "slide_3": {
           "type": "stage_slide",
           "settings": {
             "label": "Any 3 products",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "savings_text": "Save ₹398"
+            "price": "Rs. 499",
+            "compare_at_price": "Rs. 897",
+            "savings_text": "Save Rs. 398"
           }
         }
       },
@@ -341,10 +341,10 @@
             "title": "Kitchen essentials",
             "product_count": "3 products",
             "inclusions": "Includes: Foaming Kitchen Cleaner, Dishwash Gel & Tap Cleaner. Everything for a sparkling kitchen, no need to pick separately.",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "savings_badge": "Save ₹398",
-            "savings_tag": "You save ₹398",
+            "price": "Rs. 499",
+            "compare_at_price": "Rs. 897",
+            "savings_badge": "Save Rs. 398",
+            "savings_tag": "You save Rs. 398",
             "flag_tag": "Most popular",
             "is_featured": false,
             "item_1_title": "Cuts grease instantly",
@@ -358,10 +358,10 @@
             "title": "Laundry care bundle",
             "product_count": "3 products",
             "inclusions": "Includes: Laundry Detergent, Fabric Conditioner & Machine Cleaner Powder. Softer, fresher wash, all in one box.",
-            "price": "₹499",
-            "compare_at_price": "₹947",
-            "savings_badge": "Save ₹448",
-            "savings_tag": "You save ₹448",
+            "price": "Rs. 499",
+            "compare_at_price": "Rs. 947",
+            "savings_badge": "Save Rs. 448",
+            "savings_tag": "You save Rs. 448",
             "flag_tag": "",
             "is_featured": false,
             "item_1_title": "Removes tough stains & odour",
@@ -375,9 +375,9 @@
             "title": "Complete home bundle",
             "product_count": "5 products",
             "inclusions": "Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner & Handwash. Our biggest saving box.",
-            "price": "₹799",
-            "compare_at_price": "₹1,495",
-            "savings_badge": "Save ₹696",
+            "price": "Rs. 799",
+            "compare_at_price": "Rs. 1,495",
+            "savings_badge": "Save Rs. 696",
             "savings_tag": "Biggest saving",
             "flag_tag": "Best value",
             "is_featured": true,
@@ -392,10 +392,10 @@
             "title": "Bathroom deep clean",
             "product_count": "3 products",
             "inclusions": "Includes: Toilet Cleaner, Tap Cleaner & Magic Eraser. A complete bathroom refresh in one box.",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "savings_badge": "Save ₹398",
-            "savings_tag": "You save ₹398",
+            "price": "Rs. 499",
+            "compare_at_price": "Rs. 897",
+            "savings_badge": "Save Rs. 398",
+            "savings_tag": "You save Rs. 398",
             "flag_tag": "",
             "is_featured": false,
             "item_1_title": "Kills 99.9% germs",
@@ -409,10 +409,10 @@
             "title": "Hard water solution kit",
             "product_count": "2 products",
             "inclusions": "Includes: Tap Cleaner & Toilet Cleaner. A quick, focused fix for hard water stains across the home.",
-            "price": "₹349",
-            "compare_at_price": "₹598",
-            "savings_badge": "Save ₹249",
-            "savings_tag": "You save ₹249",
+            "price": "Rs. 349",
+            "compare_at_price": "Rs. 598",
+            "savings_badge": "Save Rs. 249",
+            "savings_tag": "You save Rs. 249",
             "flag_tag": "",
             "is_featured": false,
             "item_1_title": "Melts hard water stains",
@@ -442,9 +442,9 @@
             "tag": "Starter",
             "quantity_number": "2",
             "quantity_label": "Products",
-            "price": "₹349",
-            "compare_at_price": "₹598",
-            "unit_price_note": "Flat ₹174 per product",
+            "price": "Rs. 349",
+            "compare_at_price": "Rs. 598",
+            "unit_price_note": "Flat Rs. 174 per product",
             "features_list": "Pick any two products\nFree shipping across India",
             "button_label": "Build this box",
             "button_link": "#shop",
@@ -458,9 +458,9 @@
             "tag": "Most popular",
             "quantity_number": "3",
             "quantity_label": "Products",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "unit_price_note": "Flat ₹166 per product",
+            "price": "Rs. 499",
+            "compare_at_price": "Rs. 897",
+            "unit_price_note": "Flat Rs. 166 per product",
             "features_list": "Pick any three products\nCovers kitchen and laundry\nFree shipping across India",
             "button_label": "Build this box",
             "button_link": "#shop",
@@ -474,9 +474,9 @@
             "tag": "Whole home",
             "quantity_number": "5",
             "quantity_label": "Products",
-            "price": "₹799",
-            "compare_at_price": "₹1495",
-            "unit_price_note": "Flat ₹160 per product",
+            "price": "Rs. 799",
+            "compare_at_price": "Rs. 1495",
+            "unit_price_note": "Flat Rs. 160 per product",
             "features_list": "Pick any five products\nEvery room in one order\nFree shipping across India",
             "button_label": "Build this box",
             "button_link": "#shop",
@@ -568,7 +568,7 @@
       "type": "purelane-newsletter",
       "settings": {
         "kicker": "Join the Purelane Club",
-        "heading": "Get ₹100 off your first bundle",
+        "heading": "Get Rs. 100 off your first bundle",
         "lede": "Plus first access to new launches and restocks."
       }
     },

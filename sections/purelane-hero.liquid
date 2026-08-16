@@ -115,7 +115,7 @@
               <div class="purelane-glass-2 purelane-ptag">
                 <span class="purelane-lbl">{{ block.settings.label | default: 'Single bottle' }}</span>
                 <span class="purelane-val">
-                  <strong>{{ block.settings.price | default: '₹200' }}</strong>
+                  <strong>{{ block.settings.price | default: '&#8377;200' }}</strong>
                   {%- if block.settings.compare_at_price != blank -%}
                     <s>{{ block.settings.compare_at_price }}</s>
                   {%- endif -%}
@@ -134,7 +134,7 @@
             </span>
             <div class="purelane-glass-2 purelane-ptag">
               <span class="purelane-lbl">Single bottle</span>
-              <span class="purelane-val"><strong>₹200</strong><s>₹299</s></span>
+              <span class="purelane-val"><strong>&#8377;200</strong><s>&#8377;299</s></span>
               <span class="purelane-cut">33% off</span>
             </div>
           </div>
@@ -147,8 +147,8 @@
             </span>
             <div class="purelane-glass-2 purelane-ptag">
               <span class="purelane-lbl">Any 2 products</span>
-              <span class="purelane-val"><strong>₹349</strong><s>₹598</s></span>
-              <span class="purelane-cut">Save ₹249</span>
+              <span class="purelane-val"><strong>&#8377;349</strong><s>&#8377;598</s></span>
+              <span class="purelane-cut">Save &#8377;249</span>
             </div>
           </div>
           <div class="purelane-hslide purelane-hs3" data-n="3">
@@ -163,8 +163,8 @@
             </span>
             <div class="purelane-glass-2 purelane-ptag">
               <span class="purelane-lbl">Any 3 products</span>
-              <span class="purelane-val"><strong>₹499</strong><s>₹897</s></span>
-              <span class="purelane-cut">Save ₹398</span>
+              <span class="purelane-val"><strong>&#8377;499</strong><s>&#8377;897</s></span>
+              <span class="purelane-cut">Save &#8377;398</span>
             </div>
           </div>
         {%- endif -%}
@@ -299,13 +299,13 @@
           "type": "text",
           "id": "price",
           "label": "Price Text",
-          "default": "₹200"
+          "default": "&#8377;200"
         },
         {
           "type": "text",
           "id": "compare_at_price",
           "label": "Original Price Text",
-          "default": "₹299"
+          "default": "&#8377;299"
         },
         {
           "type": "text",
@@ -339,8 +339,8 @@
           "type": "stage_slide",
           "settings": {
             "label": "Single bottle",
-            "price": "₹200",
-            "compare_at_price": "₹299",
+            "price": "&#8377;200",
+            "compare_at_price": "&#8377;299",
             "savings_text": "33% off"
           }
         },
@@ -348,18 +348,18 @@
           "type": "stage_slide",
           "settings": {
             "label": "Any 2 products",
-            "price": "₹349",
-            "compare_at_price": "₹598",
-            "savings_text": "Save ₹249"
+            "price": "&#8377;349",
+            "compare_at_price": "&#8377;598",
+            "savings_text": "Save &#8377;249"
           }
         },
         {
           "type": "stage_slide",
           "settings": {
             "label": "Any 3 products",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "savings_text": "Save ₹398"
+            "price": "&#8377;499",
+            "compare_at_price": "&#8377;897",
+            "savings_text": "Save &#8377;398"
           }
         }
       ]

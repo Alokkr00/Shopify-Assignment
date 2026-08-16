@@ -79,7 +79,7 @@
               <p class="purelane-inc">{{ block.settings.inclusions }}</p>
 
               <div class="purelane-prow">
-                <strong>{{ block.settings.price | default: '₹499' }}</strong>
+                <strong>{{ block.settings.price | default: '&#8377;499' }}</strong>
                 {%- if block.settings.compare_at_price != blank -%}
                   <s>{{ block.settings.compare_at_price }}</s>
                 {%- endif -%}
@@ -101,7 +101,7 @@
         <!-- Default Fallback Combos matching purelane prototype -->
         <article class="purelane-glass purelane-combo">
           <div class="purelane-tray">
-            <span class="purelane-save">You save ₹398</span>
+            <span class="purelane-save">You save &#8377;398</span>
             <span class="purelane-flag">Most popular</span>
             <div class="purelane-stack">
               <span class="purelane-it">{% render 'purelane-icons', icon: 'bottle-fallback' %}<span>Cuts grease instantly</span></span>
@@ -115,7 +115,7 @@
             <h3>Kitchen essentials</h3>
             <div class="purelane-cnt">3 products</div>
             <p class="purelane-inc">Includes: Foaming Kitchen Cleaner, Dishwash Gel &amp; Tap Cleaner. Everything for a sparkling kitchen.</p>
-            <div class="purelane-prow"><strong>₹499</strong><s>₹897</s><em>Save ₹398</em></div>
+            <div class="purelane-prow"><strong>&#8377;499</strong><s>&#8377;897</s><em>Save &#8377;398</em></div>
             <div class="purelane-fine">Inclusive of all taxes · COD available</div>
             <a class="purelane-btn purelane-btn-ghost" href="#bundles">Shop bundle {% render 'purelane-icons', icon: 'arrow-right' %}</a>
           </div>
@@ -137,7 +137,7 @@
             <h3>Complete home bundle</h3>
             <div class="purelane-cnt">5 products</div>
             <p class="purelane-inc">Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner &amp; Handwash. Our biggest saving box.</p>
-            <div class="purelane-prow"><strong>₹799</strong><s>₹1,495</s><em>Save ₹696</em></div>
+            <div class="purelane-prow"><strong>&#8377;799</strong><s>&#8377;1,495</s><em>Save &#8377;696</em></div>
             <div class="purelane-fine">Inclusive of all taxes · COD available</div>
             <a class="purelane-btn purelane-btn-primary" href="#bundles">Shop bundle {% render 'purelane-icons', icon: 'arrow-right' %}</a>
           </div>
@@ -227,25 +227,25 @@
           "type": "text",
           "id": "price",
           "label": "Bundle Price",
-          "default": "₹499"
+          "default": "&#8377;499"
         },
         {
           "type": "text",
           "id": "compare_at_price",
           "label": "Original Price",
-          "default": "₹897"
+          "default": "&#8377;897"
         },
         {
           "type": "text",
           "id": "savings_badge",
           "label": "Savings Pill Badge",
-          "default": "Save ₹398"
+          "default": "Save &#8377;398"
         },
         {
           "type": "text",
           "id": "savings_tag",
           "label": "Top Tray Savings Tag",
-          "default": "You save ₹398"
+          "default": "You save &#8377;398"
         },
         {
           "type": "text",
@@ -319,10 +319,10 @@
           "settings": {
             "title": "Kitchen essentials",
             "product_count": "3 products",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "savings_badge": "Save ₹398",
-            "savings_tag": "You save ₹398",
+            "price": "&#8377;499",
+            "compare_at_price": "&#8377;897",
+            "savings_badge": "Save &#8377;398",
+            "savings_tag": "You save &#8377;398",
             "flag_tag": "Most popular",
             "is_featured": false
           }
@@ -332,10 +332,10 @@
           "settings": {
             "title": "Laundry care bundle",
             "product_count": "3 products",
-            "price": "₹499",
-            "compare_at_price": "₹947",
-            "savings_badge": "Save ₹448",
-            "savings_tag": "You save ₹448",
+            "price": "&#8377;499",
+            "compare_at_price": "&#8377;947",
+            "savings_badge": "Save &#8377;448",
+            "savings_tag": "You save &#8377;448",
             "flag_tag": "",
             "is_featured": false
           }
@@ -345,9 +345,9 @@
           "settings": {
             "title": "Complete home bundle",
             "product_count": "5 products",
-            "price": "₹799",
-            "compare_at_price": "₹1,495",
-            "savings_badge": "Save ₹696",
+            "price": "&#8377;799",
+            "compare_at_price": "&#8377;1,495",
+            "savings_badge": "Save &#8377;696",
             "savings_tag": "Biggest saving",
             "flag_tag": "Best value",
             "is_featured": true
@@ -358,10 +358,10 @@
           "settings": {
             "title": "Bathroom deep clean",
             "product_count": "3 products",
-            "price": "₹499",
-            "compare_at_price": "₹897",
-            "savings_badge": "Save ₹398",
-            "savings_tag": "You save ₹398",
+            "price": "&#8377;499",
+            "compare_at_price": "&#8377;897",
+            "savings_badge": "Save &#8377;398",
+            "savings_tag": "You save &#8377;398",
             "flag_tag": "",
             "is_featured": false
           }
@@ -371,10 +371,10 @@
           "settings": {
             "title": "Hard water solution kit",
             "product_count": "2 products",
-            "price": "₹349",
-            "compare_at_price": "₹598",
-            "savings_badge": "Save ₹249",
-            "savings_tag": "You save ₹249",
+            "price": "&#8377;349",
+            "compare_at_price": "&#8377;598",
+            "savings_badge": "Save &#8377;249",
+            "savings_tag": "You save &#8377;249",
             "flag_tag": "",
             "is_featured": false
           }
