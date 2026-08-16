@@ -1,0 +1,71 @@
+{% comment %}
+  Purelane Ambient Water Caustics Background Snippet
+  Usage: {% render 'purelane-background' %}
+{% endcomment %}
+
+<div class="purelane-scenes" id="purelane-scenes" data-d="1" aria-hidden="true">
+  <div class="purelane-scene purelane-s1 purelane-on"></div>
+  <div class="purelane-scene purelane-s2"></div>
+  <div class="purelane-scene purelane-s3"></div>
+  <div class="purelane-scene purelane-s4"></div>
+
+  <div class="purelane-water" id="purelane-water">
+    <div class="purelane-wl purelane-wl-a">
+      <svg class="sv" viewBox="0 0 1800 1100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pCg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#eafff4" stop-opacity="0"/>
+            <stop offset=".18" stop-color="#f2fff8" stop-opacity=".95"/>
+            <stop offset=".5" stop-color="#ffffff" stop-opacity="1"/>
+            <stop offset=".82" stop-color="#e6fbef" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#eafff4" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="pWf" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.0022 0.019" numOctaves="3" seed="21" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="72" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+        <g filter="url(#pWf)">
+          <path d="M262 230 Q372 261 482 238 Q592 247 702 250 Q812 210 923 235 Q1033 201 1143 213 Q1253 232 1363 215 Q1473 261 1583 238 Q1694 248 1804 250 Q1914 211 2024 236 Q2134 201 2244 214" stroke="url(#pCg)" stroke-width="1.7" fill="none" opacity="0.45" stroke-linecap="round"/>
+          <path d="M137 256 Q307 242 477 258 Q646 238 816 245 Q985 259 1155 247 Q1324 277 1494 262 Q1664 267 1833 269 Q2003 243 2172 259 Q2342 237 2512 245" stroke="url(#pCg)" stroke-width="5.1" fill="none" opacity="0.23" stroke-linecap="round"/>
+          <path d="M389 715 Q514 756 639 725 Q763 738 888 742 Q1013 688 1138 721 Q1262 674 1387 692 Q1512 716 1636 694 Q1761 756 1886 724 Q2010 739 2135 742 Q2260 689 2385 722" stroke="url(#pCg)" stroke-width="5.7" fill="none" opacity="0.37" stroke-linecap="round"/>
+          <path d="M140 308 Q297 310 454 302 Q611 321 769 312 Q926 314 1083 316 Q1240 298 1397 309 Q1555 295 1712 300 Q1869 309 2026 301 Q2184 321 2341 311" stroke="url(#pCg)" stroke-width="5.5" fill="none" opacity="0.47" stroke-linecap="round"/>
+          <path d="M570 422 Q687 462 805 437 Q922 436 1039 446 Q1156 391 1274 423 Q1391 388 1508 398 Q1625 432 1742 406 Q1860 462 1977 436 Q2094 438 2211 447 Q2329 391 2446 423 Q2563 387 2680 398 Q2798 430 2915 405" stroke="url(#pCg)" stroke-width="2.3" fill="none" opacity="0.25" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="purelane-wl purelane-wl-c">
+      <svg class="sv" viewBox="0 0 1800 1100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pSg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f4fff9" stop-opacity=".85"/>
+            <stop offset=".38" stop-color="#dcf6e7" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#d4f2e2" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g>
+          <polygon points="95,-80 152,-80 517,1180 439,1180" fill="url(#pSg)" opacity="0.26"/>
+          <polygon points="433,-80 491,-80 885,1180 807,1180" fill="url(#pSg)" opacity="0.41"/>
+          <polygon points="751,-80 919,-80 1180,1180 953,1180" fill="url(#pSg)" opacity="0.31"/>
+          <polygon points="1048,-80 1135,-80 1400,1180 1282,1180" fill="url(#pSg)" opacity="0.28"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="purelane-bub">
+      <span style="--x:91.9%;--s:6.7px;--dur:21.5s;--dly:19.0s;--drift:-11px"></span>
+      <span style="--x:43.4%;--s:5.7px;--dur:26.8s;--dly:16.1s;--drift:-11px"></span>
+      <span style="--x:96.6%;--s:6.2px;--dur:13.7s;--dly:10.3s;--drift:38px"></span>
+      <span style="--x:6.0%;--s:3.6px;--dur:24.4s;--dly:10.6s;--drift:3px"></span>
+      <span style="--x:70.3%;--s:3.3px;--dur:20.9s;--dly:9.2s;--drift:-39px"></span>
+      <span style="--x:67.7%;--s:4.0px;--dur:27.0s;--dly:16.5s;--drift:-5px"></span>
+      <span style="--x:2.1%;--s:7.1px;--dur:22.0s;--dly:3.1s;--drift:-37px"></span>
+      <span style="--x:69.4%;--s:8.1px;--dur:21.9s;--dly:10.7s;--drift:-24px"></span>
+      <span style="--x:64.1%;--s:8.2px;--dur:17.3s;--dly:9.0s;--drift:2px"></span>
+      <span style="--x:21.8%;--s:7.1px;--dur:15.7s;--dly:18.4s;--drift:-13px"></span>
+    </div>
+  </div>
+
+  <div class="purelane-vig"></div>
+</div>

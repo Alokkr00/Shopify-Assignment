@@ -1,0 +1,74 @@
+{% comment %}
+  Purelane Reusable Product Card Snippet
+  Handles:
+  - Sold out state (disabled button + pill)
+  - Missing image fallback
+  - Long title line clamp
+  - Native Shopify AJAX Cart form
+  Usage: {% render 'purelane-card-product', card_product: product, custom_badge: 'Best seller', lazy_load: false %}
+{% endcomment %}
+
+{%- liquid
+  assign current_variant = card_product.selected_or_first_available_variant
+  assign is_available = card_product.available
+  assign featured_media = card_product.featured_media | default: card_product.featured_image
+  assign badge_text = custom_badge
+
+  if is_available == false
+    assign badge_text = 'Sold out'
+  endif
+-%}
+
+<article class="purelane-glass-2 purelane-card purelane-rv">
+  <div class="purelane-shot">
+    {%- if badge_text != blank -%}
+      <span class="purelane-pill {% if is_available == false %}purelane-pill-soldout{% endif %}">
+        {{ badge_text }}
+      </span>
+    {%- endif -%}
+
+    <a href="{{ card_product.url | default: '#' }}" class="purelane-shot-link" aria-label="{{ card_product.title | escape }}">
+      {%- if featured_media != blank -%}
+        <img
+          src="{{ featured_media | image_url: width: 320 }}"
+          srcset="{{ featured_media | image_url: width: 160 }} 160w, {{ featured_media | image_url: width: 240 }} 240w, {{ featured_media | image_url: width: 320 }} 320w"
+          sizes="(max-width: 760px) 140px, 180px"
+          alt="{{ featured_media.alt | default: card_product.title | escape }}"
+          width="180"
+          height="220"
+          {% if lazy_load %}loading="lazy"{% endif %}
+          class="purelane-product-img"
+        >
+      {%- else -%}
+        {% render 'purelane-icons', icon: 'bottle-fallback' %}
+      {%- endif -%}
+    </a>
+  </div>
+
+  <h3 class="purelane-title">
+    <a href="{{ card_product.url | default: '#' }}">
+      {{ card_product.title | default: 'Purelane Product' }}
+    </a>
+  </h3>
+
+  <div class="purelane-rate" aria-label="Rating {{ card_product.metafields.reviews.rating.value.rating | default: '4.8' }} out of 5 stars">
+    <b>★ {{ card_product.metafields.reviews.rating.value.rating | default: '4.8' }}</b>
+    <span>· {{ card_product.metafields.reviews.rating_count.value | default: '230+' }} reviews</span>
+  </div>
+
+  {% render 'purelane-price', product: card_product, show_badge: true %}
+
+  {%- if is_available -%}
+    <form method="post" action="{{ routes.cart_add_url }}" class="purelane-product-form">
+      <input type="hidden" name="id" value="{{ current_variant.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="purelane-btn purelane-btn-ghost purelane-btn-sm" aria-label="Add {{ card_product.title | escape }} to cart">
+        <span>Add to cart</span>
+      </button>
+    </form>
+  {%- else -%}
+    <button type="button" class="purelane-btn purelane-btn-ghost purelane-btn-sm" disabled aria-disabled="true">
+      <span>Sold out</span>
+    </button>
+  {%- endif -%}
+</article>
