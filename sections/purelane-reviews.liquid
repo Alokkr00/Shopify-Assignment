@@ -1,0 +1,216 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'purelane-sections.js' | asset_url }}" defer="defer"></script>
+
+<section class="purelane-sec purelane-revband purelane-wrapper" id="reviews" data-scene="1">
+  <div class="purelane-wrap">
+
+    <div class="purelane-revhead purelane-rv">
+      {%- if section.settings.kicker != blank -%}
+        <span class="purelane-kicker">{{ section.settings.kicker }}</span>
+      {%- endif -%}
+
+      <span class="purelane-agg">
+        <span class="purelane-st">★★★★★</span>
+        <b>{{ section.settings.rating_score | default: '4.8' }}</b>
+        <span>{{ section.settings.rating_count | default: 'from 8,000+ reviews' }}</span>
+      </span>
+
+      {%- if section.settings.social_proof != blank -%}
+        <span class="purelane-agg">
+          {{ section.settings.social_proof }}
+        </span>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <div class="purelane-revrail purelane-rv" aria-label="{{ 'sections.reviews.carousel_label' | t | default: 'Customer reviews' }}">
+    <div class="purelane-revtrack">
+      {%- if section.blocks.size > 0 -%}
+        {%- for i in (1..2) -%}
+          {%- assign is_first_loop = forloop.first -%}
+          {%- for block in section.blocks -%}
+            <article class="purelane-glass-2 purelane-rcard" {% if is_first_loop %}{{ block.shopify_attributes }}{% endif %}>
+              <div class="purelane-st" aria-label="{{ block.settings.stars | default: 5 }} out of 5 stars">
+                {%- assign star_count = block.settings.stars | default: 5 -%}
+                {%- for s in (1..star_count) -%}★{%- endfor -%}
+              </div>
+
+              <h5>{{ block.settings.title | default: 'Works like a charm' }}</h5>
+              <p>{{ block.settings.body }}</p>
+
+              <div class="purelane-who">
+                {% render 'purelane-icons', icon: 'check-circle' %}
+                <b>{{ block.settings.author | default: 'Verified Buyer' }}</b>
+                {%- if block.settings.product_name != blank -%}
+                  <span>· {{ block.settings.product_name }}</span>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Default fallback reviews matching purelane prototype -->
+        {%- for i in (1..2) -%}
+          <article class="purelane-glass-2 purelane-rcard">
+            <div class="purelane-st">★★★★★</div>
+            <h5>Works like a charm</h5>
+            <p>Finally an eco option that cleans as well as the chemical detergent I used for years, and it smells better.</p>
+            <div class="purelane-who">{% render 'purelane-icons', icon: 'check-circle' %}<b>Anita</b><span>· Laundry detergent</span></div>
+          </article>
+          <article class="purelane-glass-2 purelane-rcard">
+            <div class="purelane-st">★★★★★</div>
+            <h5>Best dishwash ever</h5>
+            <p>Our old dishwash left my help with dry, cracked skin. That stopped completely after we switched.</p>
+            <div class="purelane-who">{% render 'purelane-icons', icon: 'check-circle' %}<b>Priya</b><span>· Dishwash gel</span></div>
+          </article>
+          <article class="purelane-glass-2 purelane-rcard">
+            <div class="purelane-st">★★★★★</div>
+            <h5>Great product, great packaging</h5>
+            <p>Very soft on hands with a lovely fragrance, and it feels good to be using far less plastic.</p>
+            <div class="purelane-who">{% render 'purelane-icons', icon: 'check-circle' %}<b>Sunita</b><span>· Liquid handwash</span></div>
+          </article>
+          <article class="purelane-glass-2 purelane-rcard">
+            <div class="purelane-st">★★★★★</div>
+            <h5>Dog friendly</h5>
+            <p>We switched because chemical floor cleaners were setting off my dog's allergies. No reactions since.</p>
+            <div class="purelane-who">{% render 'purelane-icons', icon: 'check-circle' %}<b>Rohit S.</b><span>· Floor cleaner</span></div>
+          </article>
+          <article class="purelane-glass-2 purelane-rcard">
+            <div class="purelane-st">★★★★★</div>
+            <h5>Sparkling taps again</h5>
+            <p>Hard water had ruined our bathroom fittings. Two sprays and the scale wipes straight off, no scrubbing.</p>
+            <div class="purelane-who">{% render 'purelane-icons', icon: 'check-circle' %}<b>Verified buyer</b><span>· Tap cleaner</span></div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane Reviews Rail",
+  "tag": "section",
+  "class": "purelane-reviews-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "That's what they said"
+    },
+    {
+      "type": "text",
+      "id": "rating_score",
+      "label": "Rating Score",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "rating_count",
+      "label": "Rating Count Subtitle",
+      "default": "from 8,000+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "social_proof",
+      "label": "Social Proof Text",
+      "default": "Loved by 12 lakh+ homes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Customer Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 3,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Star Rating"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review Title",
+          "default": "Works like a charm"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Review Body",
+          "default": "Finally an eco option that cleans as well as the chemical detergent I used for years, and it smells better."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Anita"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Purchased Product",
+          "default": "Laundry detergent"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Reviews Rail",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "title": "Works like a charm",
+            "body": "Finally an eco option that cleans as well as the chemical detergent I used for years, and it smells better.",
+            "author": "Anita",
+            "product_name": "Laundry detergent"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Best dishwash ever",
+            "body": "Our old dishwash left my help with dry, cracked skin. That stopped completely after we switched.",
+            "author": "Priya",
+            "product_name": "Dishwash gel"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Great product, great packaging",
+            "body": "Very soft on hands with a lovely fragrance, and it feels good to be using far less plastic.",
+            "author": "Sunita",
+            "product_name": "Liquid handwash"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Dog friendly",
+            "body": "We switched because chemical floor cleaners were setting off my dog's allergies. No reactions since.",
+            "author": "Rohit S.",
+            "product_name": "Floor cleaner"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Sparkling taps again",
+            "body": "Hard water had ruined our bathroom fittings. Two sprays and the scale wipes straight off, no scrubbing.",
+            "author": "Verified buyer",
+            "product_name": "Tap cleaner"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
