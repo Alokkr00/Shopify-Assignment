@@ -1,0 +1,294 @@
+{{ 'purelane-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'purelane-sections.js' | asset_url }}" defer="defer"></script>
+
+<section class="purelane-sec purelane-wrapper" id="bundles" data-scene="3">
+  <div class="purelane-wrap">
+
+    <div class="purelane-glass purelane-sec-pad purelane-rv" style="margin-bottom: 16px;">
+      <div class="purelane-panel-head" style="margin-bottom: 0;">
+        {%- if section.settings.kicker != blank -%}
+          <span class="purelane-kicker">{{ section.settings.kicker }}</span>
+        {%- endif -%}
+
+        <h2 class="purelane-d2" style="margin-top: 12px;">{{ section.settings.heading | default: 'One box. Every room.' }}</h2>
+
+        {%- if section.settings.lede != blank -%}
+          <p class="purelane-lede" style="margin: 0 auto;">
+            {{ section.settings.lede }}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="purelane-tiers">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <article class="purelane-glass purelane-tier {% if block.settings.is_popular %}purelane-tier-best{% endif %} purelane-rv purelane-rv-d{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <span class="purelane-tag">{{ block.settings.tag | default: 'Bundle' }}</span>
+
+            <div class="purelane-tierpix {% if block.settings.is_five_items %}purelane-five{% endif %}" aria-hidden="true">
+              {%- if block.settings.preview_image != blank -%}
+                <img src="{{ block.settings.preview_image | image_url: width: 240 }}" alt="{{ block.settings.tag | escape }} {{ block.settings.quantity_label | escape }}" class="purelane-pimg" loading="lazy">
+              {%- else -%}
+                {% render 'purelane-icons', icon: 'bottle-fallback' %}
+                {% render 'purelane-icons', icon: 'bottle-fallback' %}
+                {%- assign qty_num = block.settings.quantity_number | plus: 0 -%}
+                {%- if qty_num > 2 -%}
+                  {% render 'purelane-icons', icon: 'bottle-fallback' %}
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+
+            <div class="purelane-qty">
+              {{ block.settings.quantity_number | default: '3' }}
+              <small>{{ block.settings.quantity_label | default: 'Products' }}</small>
+            </div>
+
+            <div class="purelane-price">
+              {{ block.settings.price | default: '₹499' }}
+              {%- if block.settings.compare_at_price != blank -%}
+                <s>{{ block.settings.compare_at_price }}</s>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.unit_price_note != blank -%}
+              <p class="purelane-body-s" style="font-size: 12px;">{{ block.settings.unit_price_note }}</p>
+            {%- endif -%}
+
+            {%- assign features = block.settings.features_list | newline_to_br | split: '<br />' -%}
+            {%- if features.size > 0 -%}
+              <ul>
+                {%- for feature in features -%}
+                  {%- assign clean_feature = feature | strip -%}
+                  {%- if clean_feature != blank -%}
+                    <li>
+                      {% render 'purelane-icons', icon: 'check' %}
+                      <span>{{ clean_feature }}</span>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+
+            <a class="purelane-btn {% if block.settings.is_popular %}purelane-btn-primary{% else %}purelane-btn-ghost{% endif %}" href="{{ block.settings.button_link | default: '#shop' }}">
+              {{ block.settings.button_label | default: 'Build this box' }}
+              {%- if block.settings.is_popular -%}
+                {% render 'purelane-icons', icon: 'arrow-right' %}
+              {%- endif -%}
+            </a>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Default Fallback Tiers matching purelane prototype -->
+        <article class="purelane-glass purelane-tier purelane-rv">
+          <span class="purelane-tag">Starter</span>
+          <div class="purelane-tierpix">
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+          </div>
+          <div class="purelane-qty">2<small>Products</small></div>
+          <div class="purelane-price">₹349 <s>₹598</s></div>
+          <p class="purelane-body-s" style="font-size: 12px;">Flat ₹174 per product</p>
+          <ul>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Pick any two products</span></li>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Free shipping across India</span></li>
+          </ul>
+          <a class="purelane-btn purelane-btn-ghost" href="#shop">Build this box</a>
+        </article>
+
+        <article class="purelane-glass purelane-tier purelane-tier-best purelane-rv purelane-rv-d2">
+          <span class="purelane-tag">Most popular</span>
+          <div class="purelane-tierpix">
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+          </div>
+          <div class="purelane-qty">3<small>Products</small></div>
+          <div class="purelane-price">₹499 <s>₹897</s></div>
+          <p class="purelane-body-s" style="font-size: 12px;">Flat ₹166 per product</p>
+          <ul>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Pick any three products</span></li>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Covers kitchen and laundry</span></li>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Free shipping across India</span></li>
+          </ul>
+          <a class="purelane-btn purelane-btn-primary" href="#shop">Build this box {% render 'purelane-icons', icon: 'arrow-right' %}</a>
+        </article>
+
+        <article class="purelane-glass purelane-tier purelane-rv purelane-rv-d3">
+          <span class="purelane-tag">Whole home</span>
+          <div class="purelane-tierpix purelane-five">
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+            {% render 'purelane-icons', icon: 'bottle-fallback' %}
+          </div>
+          <div class="purelane-qty">5<small>Products</small></div>
+          <div class="purelane-price">₹799 <s>₹1495</s></div>
+          <p class="purelane-body-s" style="font-size: 12px;">Flat ₹160 per product</p>
+          <ul>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Pick any five products</span></li>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Every room in one order</span></li>
+            <li>{% render 'purelane-icons', icon: 'check' %}<span>Free shipping across India</span></li>
+          </ul>
+          <a class="purelane-btn purelane-btn-ghost" href="#shop">Build this box</a>
+        </article>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane Bundles",
+  "tag": "section",
+  "class": "purelane-bundles-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Build your bundle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "One box. Every room."
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede Text",
+      "default": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Bundle Tier",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "is_popular",
+          "label": "Highlight as Most Popular",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "is_five_items",
+          "label": "5 items thumbnail row layout",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tier Tag",
+          "default": "Starter"
+        },
+        {
+          "type": "text",
+          "id": "quantity_number",
+          "label": "Quantity Number",
+          "default": "2"
+        },
+        {
+          "type": "text",
+          "id": "quantity_label",
+          "label": "Quantity Label",
+          "default": "Products"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Tier Price",
+          "default": "₹349"
+        },
+        {
+          "type": "text",
+          "id": "compare_at_price",
+          "label": "Original Price",
+          "default": "₹598"
+        },
+        {
+          "type": "text",
+          "id": "unit_price_note",
+          "label": "Unit Price Calculation",
+          "default": "Flat ₹174 per product"
+        },
+        {
+          "type": "textarea",
+          "id": "features_list",
+          "label": "Features (One per line)",
+          "default": "Pick any two products\nFree shipping across India"
+        },
+        {
+          "type": "image_picker",
+          "id": "preview_image",
+          "label": "Preview Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Build this box"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Bundles",
+      "blocks": [
+        {
+          "type": "tier",
+          "settings": {
+            "tag": "Starter",
+            "quantity_number": "2",
+            "quantity_label": "Products",
+            "price": "₹349",
+            "compare_at_price": "₹598",
+            "unit_price_note": "Flat ₹174 per product",
+            "features_list": "Pick any two products\nFree shipping across India",
+            "is_popular": false
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "tag": "Most popular",
+            "quantity_number": "3",
+            "quantity_label": "Products",
+            "price": "₹499",
+            "compare_at_price": "₹897",
+            "unit_price_note": "Flat ₹166 per product",
+            "features_list": "Pick any three products\nCovers kitchen and laundry\nFree shipping across India",
+            "is_popular": true
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "tag": "Whole home",
+            "quantity_number": "5",
+            "quantity_label": "Products",
+            "price": "₹799",
+            "compare_at_price": "₹1495",
+            "unit_price_note": "Flat ₹160 per product",
+            "features_list": "Pick any five products\nEvery room in one order\nFree shipping across India",
+            "is_popular": false,
+            "is_five_items": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
