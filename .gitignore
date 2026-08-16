@@ -1,0 +1,9 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Archives and build artifacts
+*.zip
+dawn_theme/
+test_verify_zip/
+.shopify/
